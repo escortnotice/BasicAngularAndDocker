@@ -1,0 +1,11 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basicloginapp-basic-ingress
+spec:
+  backend:
+    #serviceName: basicspringbootanddocker-backendapp-service
+    #servicePort: 8085
+    serviceName: basicangulardocker-uiapp-service
+    servicePort: 80
+    

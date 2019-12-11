@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basicloginapp-pathbased-ingress
+  #annotations:
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+    #nginx.ingress.kubernetes.io/rewrite-target: "serviceName=basicspringbootanddocker-backendapp-service rewrite=/rest/docker/hello;basicangulardocker-uiapp-service rewrite=/"
+    
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: basicangulardocker-uiapp-service
+              servicePort: 80
+          - path: /rest/docker/
+            backend:
+              serviceName: basicspringbootanddocker-backendapp-service
+              servicePort: 8085

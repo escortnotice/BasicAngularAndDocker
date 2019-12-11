@@ -1,0 +1,79 @@
+# BasicAngularAndDocker (UI) Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basicangulardocker-uiapp-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        app: ui-app
+    spec:
+      containers:
+      - name: ui-app-container
+        image: escortnotice/basicangularanddocker:k8sready
+        resources:
+          limits:
+            memory: "125Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ui-app
+---
+# BasicAngularAndDocker (UI) ClusterIP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: basicangulardocker-uiapp-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: ui-app
+
+---
+# BasicSpringBootAndDocker (Backend) Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basicspringbootanddocker-backendapp-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        app: backend-app
+    spec:
+      containers:
+      - name: backend-app-container
+        image: escortnotice/basicspringbootanddocker
+        resources:
+          limits:
+            memory: "350Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8085
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-app
+---
+# BasicSpringBootAndDocker (Backend) ClusterIP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: basicspringbootanddocker-backendapp-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8085
+    targetPort: 8085
+  selector:
+    app: backend-app
+---
+
+
