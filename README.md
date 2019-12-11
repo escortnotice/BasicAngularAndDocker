@@ -24,20 +24,24 @@ The api as response will return the userid,password, name,age and loginMessage.
 
 The response is displayed in the homepage redirected to "http://localhost:4200/homepage".
 
-# BasicAngularAndDocker
+# Docker Image:
+
+https://hub.docker.com/repository/docker/escortnotice/basicangularanddocker
+
+# BasicAngularAndDocker:
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
-## Development server
+## Development server:
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
-## Build
+## Build:
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-# Docker Build Command to build an image and push to Docker Hub
+# Docker Build Command to build an image and push to Docker Hub:
 Build the app with production environment file -> ng build --prod 
 
 Build the docker image with the new build --> docker build -t escortnotice/basicangularanddocker:v10.0 .
