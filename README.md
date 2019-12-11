@@ -17,6 +17,7 @@ Response Body:
 UI url: http://localhost:4200/login
 
 The above url will open a login page. Put anything as userid/password, hit login button. After login is hit, the loginservice in angular, will hit the spring boot backend POST api "http://localhost:8085/rest/docker/login", passing the request as 
+
 { "userId":"ABC", "password":"ABC123" }.
 
 The api as response will return the userid,password, name,age and loginMessage.
