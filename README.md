@@ -37,3 +37,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+# Docker Build Command to build an image and push to Docker Hub
+Build the app with production environment file -> ng build --prod 
+
+Build the docker image with the new build --> docker build -t escortnotice/basicangularanddocker:v10.0 .
+
+Push to docker hub --> docker push escortnotice/basicangularanddocker:v10.0
+
