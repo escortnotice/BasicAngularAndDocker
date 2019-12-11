@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_baseurl: "http://localhost:8085/rest/docker"
+  api_baseurl: 'http://localhost:8085/rest/docker'
 };
 
 /*
